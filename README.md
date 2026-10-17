@@ -1,5 +1,9 @@
 # ⚡ RSAI ExamMaster · Weeks 1–12 Master Prep & Diagnostic Platform
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-brightgreen?style=for-the-badge&logo=github)](https://k1905-cpu.github.io/rsai-exam-master/)
+
+🌐 **Live Website**: [https://k1905-cpu.github.io/rsai-exam-master/](https://k1905-cpu.github.io/rsai-exam-master/)
+
 An interactive exam simulation and diagnostic platform designed for **Responsible & Safe AI (RSAI)**. Features 141 officially extracted multiple-choice questions, adaptive test modes, persistent question pool tracking, and comprehensive week-by-week performance diagnostics.
 
 ---
