@@ -384,6 +384,8 @@ function renderCurrentQuestion() {
   const imgElement = document.getElementById('question-image');
   if (q.image) {
     imgElement.src = q.image;
+    imgElement.onclick = () => openImageLightbox(q.image);
+    imgElement.style.cursor = 'zoom-in';
     imgContainer.style.display = 'flex';
   } else {
     imgContainer.style.display = 'none';
@@ -492,6 +494,29 @@ function navigateQuestion(delta) {
   if (newIndex >= 0 && newIndex < quiz.questions.length) {
     quiz.currentIndex = newIndex;
     renderCurrentQuestion();
+    const quizCard = document.getElementById('question-card');
+    if (quizCard) {
+      quizCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+}
+
+// -------------------------------------------------------------
+// Image Lightbox Helpers
+// -------------------------------------------------------------
+function openImageLightbox(src) {
+  const modal = document.getElementById('image-lightbox');
+  const img = document.getElementById('lightbox-img');
+  if (modal && img) {
+    img.src = src;
+    modal.classList.add('active');
+  }
+}
+
+function closeImageLightbox() {
+  const modal = document.getElementById('image-lightbox');
+  if (modal) {
+    modal.classList.remove('active');
   }
 }
 
@@ -956,7 +981,7 @@ function renderReviewList(filter) {
     if (q.explanation_image) {
       expImgHtml = `
         <div class="review-exp-img">
-          <img src="${q.explanation_image}" alt="Solution Working Diagram">
+          <img src="${q.explanation_image}" alt="Solution Working Diagram" onclick="openImageLightbox(this.src)" style="cursor: zoom-in;" title="Click to zoom in">
         </div>
       `;
     }
@@ -966,7 +991,7 @@ function renderReviewList(filter) {
     if (q.image) {
       qImgHtml = `
         <div class="question-image-box" style="margin-bottom: 12px; max-width: 450px;">
-          <img src="${q.image}" alt="Question Diagram">
+          <img src="${q.image}" alt="Question Diagram" onclick="openImageLightbox(this.src)" style="cursor: zoom-in;" title="Click to zoom in">
         </div>
       `;
     }
@@ -1199,7 +1224,7 @@ function renderStudyList() {
     if (q.explanation_image && appState.studyShowSolutions) {
       expImgHtml = `
         <div class="review-exp-img">
-          <img src="${q.explanation_image}" alt="Solution Working">
+          <img src="${q.explanation_image}" alt="Solution Working" onclick="openImageLightbox(this.src)" style="cursor: zoom-in;" title="Click to zoom in">
         </div>
       `;
     }
@@ -1208,7 +1233,7 @@ function renderStudyList() {
     if (q.image) {
       qImgHtml = `
         <div class="question-image-box" style="margin-bottom: 12px; max-width: 450px;">
-          <img src="${q.image}" alt="Question Diagram">
+          <img src="${q.image}" alt="Question Diagram" onclick="openImageLightbox(this.src)" style="cursor: zoom-in;" title="Click to zoom in">
         </div>
       `;
     }
