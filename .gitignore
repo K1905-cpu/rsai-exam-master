@@ -1,0 +1,18 @@
+# Executables and compiler artifacts
+*.exe
+*.o
+*.obj
+tempCodeRunnerFile.cpp
+tempCodeRunnerFile.*
+
+# Python caches and virtual environments
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Editor & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

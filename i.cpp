@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[100], n, i, pos, val, choice;
+
+    cout << "Enter number of elements in array: ";
+    cin >> n;
+
+    cout << "Enter " << n << " elements:\n";
+    for (i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "\n1. Insert an element";
+    cout << "\n2. Delete an element";
+    cout << "\nEnter your choice: ";
+    cin >> choice;
+
+    switch (choice) {
+
+        case 1:
+            cout << "Enter position to insert (1 to " << n + 1 << "): ";
+            cin >> pos;
+
+            cout << "Enter value to insert: ";
+            cin >> val;
+
+            for (i = n - 1; i >= pos - 1; i--) {
+                arr[i + 1] = arr[i];
+            }
+
+            arr[pos - 1] = val;
+            n++;
+
+            cout << "Array after insertion:\n";
+            for (i = 0; i < n; i++) {
+                cout << arr[i] << " ";
+            }
+            break;
+
+        case 2:
+            cout << "Enter position to delete (1 to " << n << "): ";
+            cin >> pos;
+
+            for (i = pos - 1; i < n - 1; i++) {
+                arr[i] = arr[i + 1];
+            }
+
+            n--;
+
+            cout << "Array after deletion:\n";
+            for (i = 0; i < n; i++) {
+                cout << arr[i] << " ";
+            }
+            break;
+
+        default:
+            cout << "Invalid choice!";
+    }
+
+    return 0;
+}
+
